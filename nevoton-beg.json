@@ -5,7 +5,6 @@
     "device": {
         "name": "BEG-EBUS",
         "id": "beg-ebus",
-
         "groups": [
             {
                 "title": "Boiler State",
@@ -29,25 +28,24 @@
             }
         ],
         "parameters": {
-			"baud_rate": {
-				"title": "Baud rate",
-				"description": "baud_rate_description",
-				"address": 1000,
-				"reg_type": "holding",
-				"enum": [0, 1, 2, 3, 4],
-				"default": 1,
-				"enum_titles": [
-					"9600",
-					"19200",
-					"38400",
-					"57600",
-					"115200"
-				],
-				"group": "general",
-				"order": 1
-			}
+          "baud_rate": {
+            "title": "Baud rate",
+            "description": "baud_rate_description",
+            "address": 1000,
+            "reg_type": "holding",
+            "enum": [0, 1, 2, 3, 4],
+            "default": 1,
+            "enum_titles": [
+              "9600",
+              "19200",
+              "38400",
+              "57600",
+              "115200"
+            ],
+          "group": "general",
+          "order": 1
+          }
         },
-
         "channels": [
             {
                 "name": "Error Code",
@@ -101,7 +99,7 @@
                 "group": "boiler_state",
                 "enabled": false
             },
-			 {
+            {
                 "name": "Hot Water Setpoint Max",
                 "address": 1007,
                 "reg_type": "input",
@@ -114,7 +112,7 @@
                 "reg_type": "input",
                 "type": "pressure",
                 "format": "s16",
-				"scale" :0.001,
+                "scale" :0.001,
                 "group": "boiler_state"
             },
             { "name": "Burner Modulation Level",
@@ -122,7 +120,7 @@
                 "reg_type": "input",
                 "type": "value",
                 "format": "s16",
-				"scale" :0.1,
+                "scale" :0.1,
                 "units": "%",
                 "group": "boiler_state"
             },
@@ -170,78 +168,77 @@
                 "scale": 0.01,
                 "group": "hw_info"
             },
-			{
-				"name": "PWM duty",
-				"type": "value",
-				"reg_type": "input",
-				"address": 1008,
-				"format": "u16",
-				"scale": 1,
-				"offset": 0,
-				"max": 100,
-				"group": "general"
-			}
+            {
+              "name": "PWM duty",
+              "type": "value",
+              "reg_type": "input",
+              "address": 1008,
+              "format": "u16",
+              "scale": 1,
+              "offset": 0,
+              "max": 100,
+              "group": "general"
+            }
         ],
-
         "subdevices": [
             {
-                "title": "Room Temperature Sensor",
-                "device_type": "room_sensor",
-                "device": {
-                    "setup": [
-                        {
-                            "title": "disable direct heating control",
-                            "address": 1002,
-                            "reg_type": "holding",
-                            "value": 0
-                        },
-                        {
-                            "title": "enable room sensor",
-                            "address": 1007,
-                            "reg_type": "holding",
-                            "value": 0
-                        }
-                    ],
-                    "channels": [
-                        {
-                            "name": "Temperature Sensor Type",
-                            "address": 1007,
-                            "reg_type": "holding",
-                            "type": "value",
-                            "readonly": true
-                        },
-                        {
-                            "name": "Heating Setpoint",
-                            "address": 1002,
-                            "reg_type": "holding",
-                            "type": "temperature",
-                            "format": "u16",
-                            "min": 0,
-                            "max": 85,
-                            "readonly": true
-                        },
-                        {
-                            "name": "Room Temperature",
-                            "address": 1006,
-                            "reg_type": "input",
-                            "type": "temperature",
-                            "format": "s16",
-                            "scale": 0.1,
-                            "offset": -100,
-                            "min": -50,
-                            "max": 50
-                        },
-                        {
-                            "name": "Room Temperature Setpoint",
-                            "address": 1004,
-                            "reg_type": "holding",
-                            "type": "temperature",
-                            "format": "u16",
-                            "min": 0,
-                            "max": 35
-                        }
-                    ]
-                }
+              "title": "Room Temperature Sensor",
+              "device_type": "room_sensor",
+              "device": {
+                "setup": [
+                  {
+                      "title": "disable direct heating control",
+                      "address": 1002,
+                      "reg_type": "holding",
+                      "value": 0
+                  },
+                  {
+                      "title": "enable room sensor",
+                      "address": 1007,
+                      "reg_type": "holding",
+                      "value": 0
+                    }
+                ],
+                "channels": [
+                  {
+                      "name": "Temperature Sensor Type",
+                      "address": 1007,
+                      "reg_type": "holding",
+                      "type": "value",
+                      "readonly": true
+                  },
+                  {
+                      "name": "Heating Setpoint",
+                      "address": 1002,
+                      "reg_type": "holding",
+                      "type": "temperature",
+                      "format": "u16",
+                      "min": 0,
+                      "max": 85,
+                      "readonly": true
+                  },
+                  {
+                      "name": "Room Temperature",
+                      "address": 1006,
+                      "reg_type": "input",
+                      "type": "temperature",
+                      "format": "s16",
+                      "scale": 0.1,
+                      "offset": -100,
+                      "min": -50,
+                      "max": 50
+                  },
+                  {
+                      "name": "Room Temperature Setpoint",
+                      "address": 1004,
+                      "reg_type": "holding",
+                      "type": "temperature",
+                      "format": "u16",
+                      "min": 0,
+                      "max": 35
+                  }
+                ]
+              }
             },
             {
                 "title": "Outdoor Temperature Sensor",
@@ -393,7 +390,7 @@
                 "Heating Temperature": "Температура подачи отопления",
                 "Heating Return Water Temperature": "Температура обратной воды отопления",
                 "Boiler Outdoor Temperature Sensor": "Уличная температура (датчик котла)",
-				"Hot Water Setpoint Max": "Максимальное значение температуры ГВС",
+                "Hot Water Setpoint Max": "Максимальное значение температуры ГВС",
                 "Water Pressure": "Давление",
                 "Burner Modulation Level" : "Модуляция котла",
                 "Invalid Connection": "Ошибка связи с котлом",
